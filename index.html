@@ -5,7 +5,16 @@
 	<title>FlowNote</title>
 	<link rel="stylesheet" href="styles/reset.css">
 	<link rel="stylesheet" href="styles/main.css" type="text/css">
-
+	<script>
+		var fnote={};
+	</script>
+	<script src="js/fnote.fake.js"></script>
+	<script>
+		console.log(fnote.fake.getNotebookList());
+		console.log(fnote.fake.getNoteList(5));
+		console.log(fnote.fake.getContent(1));
+		console.log(fnote.fake.getNote(1));
+	</script>
 </head>
 <body>
 	<div class="left-wrap">
