@@ -57,6 +57,15 @@ h1 {
 	margin-bottom: 15px;
 	padding: 5px 20px;
 }
+.book-item-enter {
+	background: #ccc;
+	border-radius: 5px;
+}
+.book-item-on {
+	background: #da3610;
+	border-radius: 5px;
+	color: #fff;
+}
 
 /*bnt: 新建笔记本按钮*/
 .new-book {
@@ -98,6 +107,10 @@ h1 {
 	padding: 8px;
 	margin-bottom: 10px;
 	line-height: 1.3em;
+}
+.note-item-on {
+	background: #da3610;
+	color:#fff;
 }
 .note-item h3 {
 	font-size: 1.2em;

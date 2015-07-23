@@ -5,15 +5,16 @@
 	<title>FlowNote</title>
 	<link rel="stylesheet" href="styles/reset.css">
 	<link rel="stylesheet" href="styles/main.css" type="text/css">
+	<script src="js/jquery.min.js"></script>
 	<script>
 		var fnote={};
 	</script>
 	<script src="js/fnote.fake.js"></script>
 	<script>
-		console.log(fnote.fake.getNotebookList());
-		console.log(fnote.fake.getNoteList(5));
-		console.log(fnote.fake.getContent(1));
-		console.log(fnote.fake.getNote(1));
+	// 	console.log(fnote.fake.getNotebookList());
+	// 	console.log(fnote.fake.getNoteList(5));
+	// 	console.log(fnote.fake.getContent(1));
+	// 	console.log(fnote.fake.getNote(1));
 	</script>
 </head>
 <body>
@@ -22,24 +23,9 @@
 			<h1>笔记本</h1>
 		</div>
 	    <ul class="book-list">
-	    	<li class="book-item">
+<!-- 	    	<li class="book-item" onclick="showNotes(this)" bookid="">
 	    		<h3>设计<span>(234)</span></h3>
-	    	</li>
-	    	<li class="book-item">
-	    		<a href="#">
-	    			<h3>体育锻炼<span>(3)</span></h3>	
-	    		</a>
-	    	</li>
-	    	<li class="book-item">
-	    		<a href="#">
-	    			<h3>HTML5<span>(29)</span></h3>
-	    		</a>	    		
-	    	</li>
-	    	<li class="book-item">
-	    		<a href="#">
-	    			<h3>语文<span>(89)</span></h3>
-	    		</a>
-	    	</li>
+	    	</li> -->
 	    </ul>
 	   	<a href="#" class="new-book"></a>
 	   	<a href="#" class="del-book"></a>
@@ -57,18 +43,10 @@
 					<h3>图片排版</h3>
 					<p>如果两张图片风格、内容色调相机，颜色的安排符合某种规律，那么观众的眼睛就会非常流畅的路过你的图片，走向下一个关注点。</p>
 				</li>
-			</ul>
-		</div>
-		<div class="note-list">
-			<ul>
 				<li class="note-item">
 					<h3>图片排版</h3>
 					<p>如果两张图片风格、内容色调相机，颜色的安排符合某种规律，那么观众的眼睛就会非常流畅的路过你的图片，走向下一个关注点。</p>
 				</li>
-			</ul>
-		</div>
-		<div class="note-list">
-			<ul>
 				<li class="note-item">
 					<h3>图片排版</h3>
 					<p>如果两张图片风格、内容色调相机，颜色的安排符合某种规律，那么观众的眼睛就会非常流畅的路过你的图片，走向下一个关注点。</p>
@@ -76,16 +54,63 @@
 			</ul>
 		</div>	    
 	</div>
-	<div class="right-wrap">
-	    <div class="right-content">
-	    	<div class="title">
-	    		<a href="#" class="del-note"></a>
-	    		<h1 class="note-title">FlowNote</h1>
-	    	</div>
-	    	<textarea class="note-content">
-	    		
-	    	</textarea>      
-	    </div>
-	</div>	
+  <div class="right-content">
+  	<div class="title">
+  		<a href="#" class="del-note"></a>
+  		<h1 class="note-title">FlowNote</h1>
+  	</div>
+  	<textarea class="note-content">
+  		
+  	</textarea>      
+  </div>
+	<script>
+	/**
+	 * 文档加载完成执行函数
+	 * 功能：显示笔记本列表
+	 */
+	$(function(){
+		var bookList = fnote.fake.getNotebookList();
+		for(var i = 0, len = bookList.length; i < len; i++){
+			var book = bookList[i];
+			var s = '<li class="book-item" onclick="showNotes(this)" bookid="'+book.id+'">'+
+								'<h3>'+book.name+'<span>('+book.note_count+')</span></h3>'+
+							'</li>';
+			$(".book-list").append(s);
+		}
+		/**
+		 * 为笔记本列添加交互效果,如鼠标滑过；点击响应
+		 */
+		$(".book-item").mouseenter(function(){
+			$(this).addClass("book-item-enter");
+		});
+		$(".book-item").mouseleave(function(){
+			$(this).removeClass("book-item-enter");
+		});
+		$(".book-item").click(function(){
+			$(".book-item").removeClass("book-item-on");
+			$(this).addClass("book-item-on");
+		});
+		/**
+		 * 为笔记列添加交互效果,如鼠标滑过；点击响应
+		 */
+		$(".note-item").click(function(){
+			$(".note-item-on").removeClass("note-item-on");
+			$(this).addClass("note-item-on");
+		});
+	});
+	function showNotes(li){
+		var o = $(li);
+		var bookId = o.attr("bookid");
+		var notes = fnote.fake.getNoteList(bookId);
+		// for(var i = 0, len = bookList.length; i < len; i++){
+		// 	var book = bookList[i];
+		// 	var s = '<li class="book-item" onclick="showNotes(this)" bookid="'+book.id+'">'+
+		// 						'<h3>'+book.name+'<span>('+book.note_count+')</span></h3>'+
+		// 					'</li>';
+		// 	$(".book-list").append(s);
+		// }
+
+	}
+	</script>	
 </body>
 </html>
