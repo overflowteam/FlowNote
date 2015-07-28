@@ -50,8 +50,10 @@ body {
 	text-align: center;
 }
 .book-list {
+	height: 40%;
 	font-size: 1.3em;
 	text-align: left;
+	overflow: auto;
 }
 .book-item {
 	margin-bottom: 15px;
@@ -246,4 +248,8 @@ body {
 .note-title input{
 	margin: .67em 0;
 	font-size: 1em;
+}
+.note-list{
+	height: 60%;
+	overflow: auto;
 }
