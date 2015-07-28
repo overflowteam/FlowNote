@@ -128,8 +128,12 @@ q.on(".J_Insert_button","click",function(){
 	if(newName == "" || newName == null){
 		alert("您还没有给新的笔记本起名!");
 	}else {
-		addOneBook(newName);
-		book_insert.style.zIndex = "0";
+		if(bookNameIsUnique(newName)){
+			addOneBook(newName);
+			book_insert.style.zIndex = "0";
+		}else{
+			alert("笨蛋,名字重复了!")
+		}
 	}
 });
 q.on(".J_Del_book","click",function(){
@@ -159,10 +163,14 @@ q.on("#artsavebutton","click",function(){
   	if(h1 == "" || h1 == null){
   		alert("请先输入标题再保存!");
   	}else{
-  		addOneNote(h1,content);
- 		showAllBooks();
-  		showNoteAb();
-  		q(".article_wraper").style.display = "none";
+  		if(noteNameIsUnique(h1)){
+  		    addOneNote(h1,content);
+ 		    showAllBooks();
+  			showNoteAb();
+  			q(".article_wraper").style.display = "none";
+  		}else{
+  			alert("笨蛋，名字重复了！");
+  		}
   	}
 });
 q.on("#artcancelbutton","click",function(){
