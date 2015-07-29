@@ -1,0 +1,19 @@
+{
+  "name": "FlowNote",
+  "version": "0.0.1",
+  "description": "Personal knowledge management application.",
+  "scripts": {
+    "start": "node ./bin/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/overflowteam/FlowNote"
+  },
+  "author": "overflowteam",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.13.1"
+  },
+  "devDependencies": {
+  }
+}
