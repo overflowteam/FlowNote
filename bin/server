@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+var app   = require('../app');
+
+app.set('port', process.env.PORT || 9090);
+
+var server = app.listen(app.get('port'), function () {
+  console.log('Server is running at ' + server.address().port);
+});
