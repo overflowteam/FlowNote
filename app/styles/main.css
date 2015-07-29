@@ -40,7 +40,7 @@ body {
 }
 
 .title {
-	height: 30%;
+	height: 20%;
 }
 .title h1 {
 	position: absolute;
@@ -149,7 +149,7 @@ body {
 /*bnt: 新建笔记本按钮*/
 .newbook_wraper{
 	position: relative;
-	margin: 30px auto 0;
+	margin: 30px auto;
 	height: 40px;
 }
 .newbutton_wraper{

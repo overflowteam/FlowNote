@@ -155,5 +155,26 @@ function updateNoteText(id,text){
 	        q.storageJson(nl,noteJson);
 	        break;
     	};
+ 
     }
+}
+
+//笔记本的名字是否重复
+function bookNameIsUnique(name){
+	for(key in notebookJson){
+		if(notebookJson[key].book_name == name){
+			return false;
+		}
+	}
+	return true;
+}
+
+//笔记的名字是否重复
+function noteNameIsUnique(name){
+    for(key in noteJson){
+		if(noteJson[key].note_name == name){
+			return false;
+		}
+	}
+	return true;
 }
